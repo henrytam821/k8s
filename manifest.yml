@@ -13,7 +13,7 @@ metadata:
     app: nodejs-demo
     version: v1
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: nodejs-demo
@@ -21,9 +21,9 @@ spec:
     metadata:
       labels:
         app: nodejs-demo
-      annotations:
-        prometheus.io/scrape: "true"
-        prometheus.io/port: "3000"
+     # annotations:
+     #   prometheus.io/scrape: "true"
+     #   prometheus.io/port: "3000"
     spec:
       containers:
       - name: nodejs-app
@@ -152,7 +152,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: nodejs-demo-app
-  minReplicas: 3
+  minReplicas: 1
   maxReplicas: 10
   metrics:
   - type: Resource
